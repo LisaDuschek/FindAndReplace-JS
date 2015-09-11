@@ -1,28 +1,25 @@
-function FindReplace(input_sentence, replace_word, new_word) {
-  var input_new = input_sentence.replace(/\W+/g, ' ').toLowerCase().split(" ");
-  var replace_word = replace_word.toLowerCase();
-  var new_word = new_word.toLowerCase();
+function FindReplace(inputSentence, replaceWord, newWord) {
+  var inputNew = inputSentence.replace(/\W+/g, ' ').toLowerCase().split(" ");
+  var replaceWord = replaceWord.toLowerCase();
+  var newWord = newWord.toLowerCase();
 
-  input_new.forEach(function(word){
-      if (word === replace_word ){
-        input_new[input_new.indexOf(word)] = new_word;
-
-      }
+  inputNew.forEach(function(word){
+      if (word === replaceWord ){
+        inputNew[inputNew.indexOf(word)] = newWord;
+  }
 });
 
 
-  return input_new.join(" ").trim();
-
-
-  }
+  return inputNew.join(" ").trim();
+}
 
 
   $(document).ready(function()  {
   $("form#find_and_replace").submit(function(event) {
-    var input_sentence = ($("input#input_sentence").val());
-    var replace_word = ($("input#replace_word").val());
-    var new_word = ($("input#new_word").val());
-    var result = FindReplace(input_sentence, replace_word, new_word);
+    var inputSentence = ($("input#inputSentence").val());
+    var replaceWord = ($("input#replaceWord").val());
+    var newWord = ($("input#newWord").val());
+    var result = FindReplace(inputSentence, replaceWord, newWord);
 
     $(".find_and_replace").text(result);
 
